@@ -1,0 +1,46 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace otoparksorusu
+{
+
+    //1 gün 25tl
+    // ilk 2 SAAT 6TL
+    //kalan saatler 2 tl
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int girilen_saat;
+            int hesaplanan_gün;
+            int hesaplanan_saat;
+            int odeme = 0;
+
+            Console.WriteLine("kaç saat girdiğinizi yazınız:");
+            girilen_saat = Convert.ToInt32(Console.ReadLine());
+
+            hesaplanan_gün = girilen_saat / 24;
+            hesaplanan_saat = girilen_saat % 24;
+
+            if(hesaplanan_saat<= 2)
+            {
+                odeme = (hesaplanan_gün * 25) + 6;
+            }
+            if(hesaplanan_saat >= 2 && hesaplanan_saat <=8)
+            {
+                hesaplanan_saat = hesaplanan_saat - 2;
+                odeme = (hesaplanan_gün * 25) + 6 + (hesaplanan_saat * 2);
+            }
+            if (hesaplanan_saat>8)
+            {
+                odeme = (hesaplanan_gün + 1) * 25;
+            }
+            Console.WriteLine("yapacağınız ödeme {0}tl", odeme);
+            Console.ReadKey(false);
+
+        }
+    }
+}
